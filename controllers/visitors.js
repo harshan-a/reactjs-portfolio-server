@@ -8,7 +8,7 @@ export async function createOrUpdateVisitor(req, res, next) {
     visitor = await Visitor.findOneAndUpdate(
       { _id: existingVisitorId },
       { $inc: { visits: 1 } },
-      { new: true },
+      { new: true, upsert: true },
     )
     // console.log("Visitor updated", visitor)
   } else {
@@ -22,5 +22,5 @@ export async function createOrUpdateVisitor(req, res, next) {
     secure: true,
     maxAge: 1000 * 60 * 60 * 24 * 365,
   })
-  res.status(201).json({ success: true })
+  res.status(201).json({ success: true, visits: visitor.visits })
 }

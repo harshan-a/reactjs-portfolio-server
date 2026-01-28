@@ -50,5 +50,5 @@ export async function createFeedback(req, res, next) {
   })
   // console.log("Feedback created", feedback)
 
-  res.status(201).json({ success: true })
+  res.status(201).json({ success: true, visitorId })
 }

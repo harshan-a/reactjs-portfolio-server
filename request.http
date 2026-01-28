@@ -1,0 +1,3 @@
+###
+POST http://localhost:5000/api/v1/visitors
+Cookie: visitorId=6979e70bdb01412bc08c3daf
